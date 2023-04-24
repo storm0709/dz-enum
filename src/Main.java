@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class Main {
     public static void main(String [] args) {
@@ -46,23 +43,16 @@ public class Main {
         String sentenceCaseOk = startingSentence.toLowerCase();
 
         char [] chars = sentenceCaseOk.toCharArray();
+        int counter = 0;
 
         //Порахуйте загальну кількість голосних (a, e, i, o, u) у рядку.
 
-        Map <Character, Integer> voiceLetters = new HashMap <Character, Integer> ();
-        voiceLetters.put ('a', 0);
-        voiceLetters.put ('e', 0);
-        voiceLetters.put ('i', 0);
-        voiceLetters.put ('o', 0);
-        voiceLetters.put ('u', 0);
-
         for (int i = 0; i< chars.length; i++) {
-            if (voiceLetters.containsKey(chars[i])) {
-                int counter = voiceLetters.get(chars[i]) +1;
-                voiceLetters.put(chars[i], counter);
+            if (chars[i]=='a'|| chars[i]=='e'|| chars[i]=='i' || chars[i]=='o' ||chars[i]=='u') {
+                counter++;
             }
         }
-        System.out.println("Загальна кількість голосних у рядку: "+voiceLetters);
+        System.out.println("Загальна кількість голосних у рядку: " + counter);
 
         //Розділіть рядок на масив слів за допомогою пробілу як роздільника.
         System.out.println();
@@ -74,7 +64,7 @@ public class Main {
 
         // Витягніть перший символ першого слова та виведіть його на консоль.
         System.out.println();
-        System.out.println("Перший символ першого слова: "+startingSentence.substring(0,1));
+        System.out.println("Перший символ першого слова: "+startingSentence.charAt(0));
 
         // Замініть всі входження слова "dog" на "cat" у рядку.
         System.out.println();
